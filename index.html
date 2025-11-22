@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Builder | John Doe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">RB</div>
+        <div>
+          <h1>Resume Builder</h1>
+          <p class="subtitle">Design-first, export-ready resumes</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="loadSample" class="btn ghost">Load Sample</button>
+        <button id="shareLink" class="btn outline">Share</button>
+        <button id="downloadMd" class="btn">MD</button>
+        <button id="downloadPdf" class="btn primary">Export PDF</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="left-col">
+        <form id="resumeForm" onsubmit="return false;">
+          <div class="card grid-2">
+            <div>
+              <label>Full Name</label>
+              <input id="name" type="text" placeholder="John Doe" required>
+            </div>
+            <div>
+              <label>Role</label>
+              <input id="role" type="text" placeholder="Software Engineer">
+            </div>
+            <div>
+              <label>Email</label>
+              <input id="email" type="email" placeholder="name@example.com">
+            </div>
+            <div>
+              <label>Phone</label>
+              <input id="phone" type="text" placeholder="+91 1234567890">
+            </div>
+            <div>
+              <label>Location</label>
+              <input id="location" type="text" placeholder="City, Country">
+            </div>
+            <div>
+              <label>LinkedIn</label>
+              <input id="linkedin" type="text" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="full">
+              <label>Portfolio</label>
+              <input id="portfolio" type="text" placeholder="https://...">
+            </div>
+          </div>
+
+          <div class="card">
+            <label>Profile Photo</label>
+            <div class="photo-row">
+              <input id="photoInput" type="file" accept="image/*">
+              <div id="photoThumbnail" class="photo-thumb empty">No photo</div>
+              <button type="button" id="removePhoto" class="btn small ghost">Remove</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <label>Professional Summary</label>
+            <textarea id="summary" rows="4"></textarea>
+          </div>
+
+          <div class="card grid-2">
+            <div>
+              <label>Skills (comma separated)</label>
+              <input id="skills" type="text">
+            </div>
+            <div>
+              <label>Languages (comma separated)</label>
+              <input id="languages" type="text">
+            </div>
+            <div class="full">
+              <label>Certifications (one per line)</label>
+              <textarea id="certs" rows="2"></textarea>
+            </div>
+            <div class="full">
+              <label>Achievements / Awards (one per line)</label>
+              <textarea id="awards" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="card section-header">
+            <h3>Experience</h3>
+            <button type="button" id="addExp" class="btn small">+ Add</button>
+          </div>
+          <div id="experiences" class="stack"></div>
+
+          <div class="card section-header">
+            <h3>Projects</h3>
+            <button type="button" id="addProj" class="btn small">+ Add</button>
+          </div>
+          <div id="projects" class="stack"></div>
+
+          <div class="card section-header">
+            <h3>Education</h3>
+            <button type="button" id="addEdu" class="btn small">+ Add</button>
+          </div>
+          <div id="education" class="stack"></div>
+
+          <div class="card controls">
+            <div class="left">
+              <label>Layout</label>
+              <select id="layoutStyle">
+                <option value="classic">Classic</option>
+                <option value="modern" selected>Modern</option>
+                <option value="executive">Executive</option>
+              </select>
+            </div>
+            <div class="right">
+              <button id="generate" class="btn primary">Preview</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="right-col">
+        <div id="resumePreview" class="resume-preview">
+          <div class="preview-empty">
+            <p>Preview will appear here. Fill the form and click <strong>Preview</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>&copy; 2025 John Doe | ATS Friendly Resume Builder</small>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
